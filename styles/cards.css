@@ -1,0 +1,113 @@
+#page {
+    background: #445544;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    margin: auto;
+}
+
+.main-block{
+    display: flex;
+    width: 50px;
+    height: 50px;
+
+    margin-top: 200px;
+}
+
+
+
+.node{
+    width: 90%;
+    height: 90%;
+    background-color: bisque;
+    border-color: #F0F7D4;
+    border-style: solid;
+    border-width: thin;
+
+    border-radius: 90%;
+
+
+    display: inline-block;
+    vertical-align: middle;
+    transform: perspective(20px) translateZ(0);
+    box-shadow: 0 0 20px #F0F7D4;
+    position: relative;
+ }
+
+
+
+@-webkit-keyframes node {
+    100% {
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes node {
+    100% {
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        opacity: 1;
+    }
+}
+
+
+
+.node:before {
+    content: '';
+    position: absolute;
+    border: #F0F7D4 solid 2px;
+    border-radius: 90%;
+    top: -12px;
+    right: -12px;
+    bottom: -12px;
+    left: -12px;
+    opacity: 0;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+}
+
+.node:hover:before, .node:focus:before, .node:active:before {
+    -webkit-animation-name: node;
+    animation-name: node;
+}
+
+.node:active{
+    background-color: #556655;
+}
+
+/**********************************************************************/
+/* Tooltip container */
+.node-tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.node-tooltip .node-tooltip-text {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.node-tooltip:hover .node-tooltip-text {
+    visibility: visible;
+}
